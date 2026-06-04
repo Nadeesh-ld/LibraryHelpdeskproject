@@ -22,6 +22,8 @@ Web browser
 
 
 <img width="1901" height="906" alt="image" src="https://github.com/user-attachments/assets/81ca6a1d-44c7-4798-bf4e-8e4edef0bb5b" />
+<img width="1871" height="907" alt="image" src="https://github.com/user-attachments/assets/70b55e92-02e7-4099-8234-da10ecccb85a" />
+
 
 <img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/2fa4e9b7-64a1-40f4-ab65-7e8c3164efc3" />
 
