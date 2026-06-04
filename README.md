@@ -17,7 +17,8 @@ Maven 3+
 
 Web browser
 
-<img width="1887" height="908" alt="image" src="https://github.com/user-attachments/assets/f8cea9b8-ebb0-433e-a120-0fce5ea9db06" />
+<img width="1885" height="925" alt="image" src="https://github.com/user-attachments/assets/f05a12c5-247d-42c6-b25c-f561a6474616" />
+
 
 
 <img width="1901" height="906" alt="image" src="https://github.com/user-attachments/assets/81ca6a1d-44c7-4798-bf4e-8e4edef0bb5b" />
