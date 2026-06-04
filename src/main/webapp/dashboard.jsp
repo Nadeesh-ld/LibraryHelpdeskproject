@@ -16,28 +16,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard - Library Help Desk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #4e73df;
-            --secondary-color: #858796;
-            --success-color: #1cc88a;
-            --info-color: #36b9cc;
-            --warning-color: #f6c23e;
-            --danger-color: #e74a3b;
-            --light-color: #f8f9fc;
-            --dark-color: #5a5c69;
-            --darker-color: #2c3e50;
+            --primary-color: #3b82f6;
+            --secondary-color: #8b5cf6;
+            --success-color: #10b981;
+            --info-color: #0ea5e9;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+            --darker-color: #1e293b;
             --white: #ffffff;
-            --gray-100: #f8f9fa;
-            --gray-200: #e9ecef;
-            --gray-300: #dee2e6;
-            --gray-400: #ced4da;
-            --gray-500: #adb5bd;
-            --gray-600: #6c757d;
-            --gray-700: #495057;
-            --gray-800: #343a40;
-            --gray-900: #212529;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
         }
 
         * {
@@ -47,40 +48,43 @@
         }
 
         body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Outfit', sans-serif;
+            background: var(--gray-100);
             min-height: 100vh;
             color: var(--dark-color);
         }
 
+        /* Dashboard Hero */
+        .dashboard-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding-bottom: 50px;
+            margin-bottom: -50px; /* Overlap the container slightly */
+        }
+
         /* Modern Top Bar */
         .top-bar {
-            background: var(--white);
-            color: var(--dark-color);
+            background: transparent;
+            color: var(--white);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 32px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
+            padding: 20px 32px;
+            position: relative;
             z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        .top-bar.scrolled {
-            padding: 10px 32px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
         .top-bar .logo {
             display: flex;
             align-items: center;
             font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--white);
         }
         .top-bar .logo i {
             margin-right: 10px;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--primary-color);
         }
         .top-bar .nav-icons {
@@ -88,8 +92,8 @@
             gap: 8px;
         }
         .top-bar .nav-icons a {
-            color: var(--dark-color);
-            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 10px;
@@ -97,14 +101,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-weight: 500;
+            font-weight: 600;
             position: relative;
         }
         .top-bar .nav-icons a:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(78, 115, 223, 0.3);
+            color: var(--primary-color);
+            background: var(--white);
         }
         .top-bar .nav-icons .notification-badge {
             position: absolute;
@@ -128,7 +130,7 @@
         .top-bar .user-section .user-email {
             font-weight: 600;
             font-size: 1rem;
-            color: var(--dark-color);
+            color: var(--white);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -137,9 +139,9 @@
             color: var(--primary-color);
         }
         .top-bar .logout-btn {
-            background: var(--danger-color);
-            color: var(--white);
-            border: none;
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
             border-radius: 10px;
             padding: 10px 16px;
             font-size: 1rem;
@@ -149,12 +151,12 @@
             align-items: center;
             gap: 8px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
         }
         .top-bar .logout-btn:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(231, 74, 59, 0.3);
+            background: #fef2f2;
+            color: var(--danger-color);
+            border-color: #fca5a5;
         }
 
         /* Main Container */
@@ -166,34 +168,26 @@
 
         /* Welcome Section */
         .welcome-section {
-            background: var(--white);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            padding: 40px;
+            padding: 60px 40px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             animation: fadeInUp 0.6s ease-out;
+            color: var(--white);
         }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .welcome-section h2 {
-            font-size: 2.5rem;
-            color: var(--dark-color);
+            font-size: 3.5rem;
+            color: var(--white);
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 800;
         }
         .welcome-section p {
             font-size: 1.2rem;
-            color: var(--secondary-color);
-            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -219,24 +213,19 @@
         }
         .action-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
-        .action-btn.primary {
-            background: linear-gradient(135deg, var(--primary-color), #2e59d9);
-        }
-        .action-btn.warning {
-            background: linear-gradient(135deg, var(--warning-color), #f4b619);
-        }
-        .action-btn.success {
-            background: linear-gradient(135deg, var(--success-color), #17a673);
-        }
+        .action-btn.primary { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); }
+        .action-btn.warning { background: linear-gradient(135deg, var(--warning-color), #fbbf24); }
+        .action-btn.success { background: linear-gradient(135deg, var(--success-color), #34d399); }
 
         /* Books Section */
         .books-section {
             background: var(--white);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--gray-200);
             animation: fadeInUp 1s ease-out;
             animation-fill-mode: both;
         }
@@ -249,7 +238,7 @@
         .section-header h3 {
             font-size: 2rem;
             color: var(--dark-color);
-            font-weight: 700;
+            font-weight: 800;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -258,9 +247,9 @@
             color: var(--primary-color);
         }
         .view-all-btn {
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
             border-radius: 50px;
             padding: 10px 20px;
             font-size: 0.9rem;
@@ -273,9 +262,9 @@
             gap: 8px;
         }
         .view-all-btn:hover {
-            background: #2e59d9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(78, 115, 223, 0.3);
+            background: var(--white);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
         }
         .books-grid {
             display: grid;
@@ -285,7 +274,7 @@
         .book-card {
             background: var(--white);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             overflow: hidden;
             transition: all 0.3s ease;
             position: relative;
@@ -293,7 +282,8 @@
         }
         .book-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--gray-300);
         }
         .book-card .book-cover {
             height: 250px;
@@ -313,18 +303,19 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background: var(--primary-color);
-            color: var(--white);
+            background: rgba(255,255,255,0.9);
+            color: var(--primary-color);
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
+            backdrop-filter: blur(5px);
         }
         .book-card .book-info {
             padding: 20px;
         }
         .book-card .book-title {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.1rem;
             color: var(--dark-color);
             margin-bottom: 8px;
@@ -336,15 +327,14 @@
         }
         .book-card .book-author {
             font-size: 0.9rem;
-            color: var(--secondary-color);
+            color: var(--gray-500);
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 5px;
+            font-weight: 500;
         }
-        .book-card .book-author i {
-            color: var(--primary-color);
-        }
+        .book-card .book-author i { color: var(--gray-400); }
         .book-card .book-actions {
             display: flex;
             justify-content: space-between;
@@ -366,9 +356,7 @@
             background: var(--primary-color);
             color: var(--white);
         }
-        .book-card .book-actions .btn-primary:hover {
-            background: #2e59d9;
-        }
+        .book-card .book-actions .btn-primary:hover { background: #2563eb; }
         .book-card .book-actions .btn-outline {
             background: transparent;
             color: var(--primary-color);
@@ -388,12 +376,11 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(5px);
             animation: fadeIn 0.3s ease;
         }
-        .modal.show {
-            display: block;
-        }
+        .modal.show { display: block; }
         .modal-content {
             background-color: var(--white);
             margin: 5% auto;
@@ -404,263 +391,136 @@
             max-height: 90vh;
             overflow-y: auto;
             animation: slideIn 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 1px solid var(--gray-200);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .modal-header {
-            background: linear-gradient(135deg, var(--primary-color), #2e59d9);
-            color: var(--white);
+            background: var(--white);
+            color: var(--dark-color);
             padding: 20px 30px;
             border-radius: 20px 20px 0 0;
+            border-bottom: 1px solid var(--gray-200);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .modal-header h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
+        .modal-header h2 { margin: 0; font-size: 1.5rem; font-weight: 700; }
         .close {
-            color: var(--white);
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            color: var(--gray-500); font-size: 28px; font-weight: bold; cursor: pointer; transition: transform 0.3s ease, color 0.3s;
         }
-        .close:hover {
-            transform: rotate(90deg);
-        }
-        .modal-body {
-            padding: 30px;
-        }
-        .book-detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        .book-detail-cover {
-            text-align: center;
-        }
-        .book-detail-cover img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .book-detail-info h3 {
-            color: var(--dark-color);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .book-detail-info .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-        .book-detail-info .meta-item i {
-            color: var(--primary-color);
-            width: 20px;
-            text-align: center;
-        }
-        .book-detail-info .meta-label {
-            font-weight: 600;
-            color: var(--dark-color);
-            min-width: 100px;
-        }
-        .book-detail-info .meta-value {
-            color: var(--secondary-color);
-        }
-        .book-detail-info .description {
-            color: var(--dark-color);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .book-detail-info .rating {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 20px;
-        }
-        .book-detail-info .rating i {
-            color: var(--warning-color);
-        }
-        .book-detail-info .availability {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .book-detail-info .available {
-            background: var(--success-color);
-            color: var(--white);
-        }
-        .book-detail-info .unavailable {
-            background: var(--danger-color);
-            color: var(--white);
-        }
+        .close:hover { transform: rotate(90deg); color: var(--dark-color); }
+        .modal-body { padding: 30px; }
+        .book-detail-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; margin-bottom: 30px; }
+        .book-detail-cover { text-align: center; }
+        .book-detail-cover img { width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .book-detail-info h3 { color: var(--dark-color); font-size: 1.8rem; margin-bottom: 15px; font-weight: 800; }
+        .book-detail-info .meta-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .book-detail-info .meta-item i { color: var(--primary-color); width: 20px; text-align: center; }
+        .book-detail-info .meta-label { font-weight: 600; color: var(--gray-700); min-width: 100px; }
+        .book-detail-info .meta-value { color: var(--gray-600); }
+        .book-detail-info .description { color: var(--gray-700); line-height: 1.6; margin-bottom: 20px; }
+        .book-detail-info .rating { display: flex; gap: 5px; margin-bottom: 20px; }
+        .book-detail-info .rating i { color: var(--warning-color); }
+        .book-detail-info .availability { display: inline-block; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
+        .book-detail-info .available { background: #d1fae5; color: #059669; }
+        .book-detail-info .unavailable { background: #fee2e2; color: #dc2626; }
         .modal-footer {
-            padding: 20px 30px;
-            background: var(--gray-100);
-            border-radius: 0 0 20px 20px;
-            display: flex;
-            justify-content: center;
+            padding: 20px 30px; background: var(--gray-100); border-radius: 0 0 20px 20px; display: flex; justify-content: center;
         }
         .modal-footer .btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            padding: 10px 20px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
         }
-        .modal-footer .btn-primary {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-        .modal-footer .btn-primary:hover {
-            background: #2e59d9;
-        }
-        .modal-footer .btn-secondary {
-            background: var(--secondary-color);
-            color: var(--white);
-        }
-        .modal-footer .btn-secondary:hover {
-            background: var(--gray-700);
-        }
+        .modal-footer .btn-primary { background: var(--primary-color); color: var(--white); }
+        .modal-footer .btn-primary:hover { background: #2563eb; }
+        .modal-footer .btn-secondary { background: var(--gray-300); color: var(--gray-700); }
+        .modal-footer .btn-secondary:hover { background: var(--gray-400); color: var(--white); }
 
         /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: var(--gray-600);
-            font-size: 0.9rem;
-        }
+        .footer { text-align: center; padding: 30px 20px; color: var(--gray-500); font-size: 0.9rem; }
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .top-bar .nav-icons {
-                display: none;
-            }
-            .action-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .section-header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            .book-detail-grid {
-                grid-template-columns: 1fr;
-            }
+            .top-bar .nav-icons { display: none; }
+            .action-buttons { flex-direction: column; align-items: center; }
+            .section-header { flex-direction: column; gap: 15px; text-align: center; }
+            .book-detail-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            .welcome-section {
-                padding: 30px 20px;
-            }
-            .welcome-section h2 {
-                font-size: 2rem;
-            }
-            .books-section {
-                padding: 30px 20px;
-            }
-            .books-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 15px;
-            }
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-            }
+            .container { padding: 20px; }
+            .welcome-section { padding: 30px 20px; }
+            .welcome-section h2 { font-size: 2rem; }
+            .books-section { padding: 30px 20px; }
+            .books-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+            .modal-content { width: 95%; margin: 10% auto; }
         }
 
         @media (max-width: 576px) {
-            .books-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
+            .books-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
         }
     </style>
 </head>
 <body>
-
-<!-- Modern Top Bar -->
-<div class="top-bar" id="topBar">
-    <div class="logo">
-        <i class="fas fa-book-reader"></i> Library Desk
-    </div>
-    <div class="nav-icons">
-        <a href="myTickets.jsp" title="My Tickets">
-            <i class="fas fa-ticket-alt"></i> My Tickets
-        </a>
-        <a href="myfeedbacks.jsp" title="My Reviews">
-            <i class="fas fa-star"></i> My Reviews
-        </a>
-        <a href="listFAQUser.jsp" title="FAQ">
-            <i class="fas fa-question-circle"></i> FAQ
-        </a>
-        <a href="ViewRequestServlet" title="My Requests">
-            <i class="fas fa-clipboard-list"></i> My Requests
-        </a>
-        <a href="profile.jsp" title="My Profile">
-            <i class="fas fa-user-cog"></i> My Profile
-        </a>
-        <a href="userNotifications.jsp" title="Notifications">
-            <i class="fas fa-bell"></i> Notifications
-            <span class="notification-badge"></span>
-        </a>
-    </div>
-    <div class="user-section">
-        <span class="user-email">
-            <i class="fas fa-user-circle"></i> <%= firstName %>
-        </span>
-        <a href="mainpage.jsp" class="logout-btn">
-            <i class="fas fa-sign-out-alt"></i> Logout
-        </a>
-    </div>
-</div>
-
-<div class="container">
-    <!-- Welcome Section -->
-    <div class="welcome-section">
-        <h2>Hello, <%= firstName %>! 👋</h2>
-        <p>Welcome back to your library dashboard. How can we help you today?</p>
-        <div class="action-buttons">
-            <a href="submitTicket.jsp" class="action-btn primary">
-                <i class="fas fa-paper-plane"></i> Submit a Ticket
+<div class="dashboard-hero">
+    <!-- Modern Top Bar -->
+    <div class="top-bar" id="topBar">
+        <div class="logo">
+            <i class="fas fa-book-reader"></i> Library Desk
+        </div>
+        <div class="nav-icons">
+            <a href="myTickets.jsp" title="My Tickets">
+                <i class="fas fa-ticket-alt"></i> My Tickets
             </a>
-            <a href="FeedbackListServlet" class="action-btn warning">
-                <i class="fas fa-star"></i> See Reviews
+            <a href="myfeedbacks.jsp" title="My Reviews">
+                <i class="fas fa-star"></i> My Reviews
             </a>
-            <a href="addrequest.jsp" class="action-btn success">
-                <i class="fas fa-plus-circle"></i> Add a Request
+            <a href="listFAQUser.jsp" title="FAQ">
+                <i class="fas fa-question-circle"></i> FAQ
+            </a>
+            <a href="ViewRequestServlet" title="My Requests">
+                <i class="fas fa-clipboard-list"></i> My Requests
+            </a>
+            <a href="profile.jsp" title="My Profile">
+                <i class="fas fa-user-cog"></i> My Profile
+            </a>
+            <a href="userNotifications.jsp" title="Notifications">
+                <i class="fas fa-bell"></i> Notifications
+                <span class="notification-badge"></span>
+            </a>
+        </div>
+        <div class="user-section">
+            <span class="user-email">
+                <i class="fas fa-user-circle"></i> <%= firstName %>
+            </span>
+            <a href="mainpage.jsp" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
             </a>
         </div>
     </div>
 
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h2>Hello, <%= firstName %>! 👋</h2>
+            <p>Welcome back to your library dashboard. How can we help you today?</p>
+            <div class="action-buttons">
+                <a href="submitTicket.jsp" class="action-btn primary">
+                    <i class="fas fa-paper-plane"></i> Submit a Ticket
+                </a>
+                <a href="FeedbackListServlet" class="action-btn warning">
+                    <i class="fas fa-star"></i> See Reviews
+                </a>
+                <a href="addrequest.jsp" class="action-btn success">
+                    <i class="fas fa-plus-circle"></i> Add a Request
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="position: relative; z-index: 10;">
     <!-- Books Section -->
     <div class="books-section">
         <div class="section-header">

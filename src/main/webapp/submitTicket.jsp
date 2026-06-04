@@ -37,20 +37,21 @@
     <title>Submit Ticket</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4361ee;
-            --secondary-color: #6c757d;
-            --success-color: #2ecc71;
-            --info-color: #3498db;
-            --warning-color: #f39c12;
-            --danger-color: #e74c3c;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
+            --primary-color: #3b82f6;
+            --secondary-color: #8b5cf6;
+            --success-color: #10b981;
+            --info-color: #0ea5e9;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
             --white: #ffffff;
-            --gray-light: #f1f3f5;
-            --gray-medium: #dee2e6;
-            --gray-dark: #6c757d;
+            --gray-light: #f1f5f9;
+            --gray-medium: #e2e8f0;
+            --gray-dark: #64748b;
         }
 
         * {
@@ -60,9 +61,9 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Outfit', sans-serif;
             min-height: 100vh;
-            background-color: #f5f7fb;
+            background-color: var(--gray-light);
             color: var(--dark-color);
             position: relative;
         }
