@@ -20,7 +20,8 @@ Web browser
 <img width="1887" height="908" alt="image" src="https://github.com/user-attachments/assets/f8cea9b8-ebb0-433e-a120-0fce5ea9db06" />
 
 
-<img width="1918" height="912" alt="image" src="https://github.com/user-attachments/assets/17704297-7d85-477f-b281-3cd6a4849e79" />
+<img width="1901" height="906" alt="image" src="https://github.com/user-attachments/assets/81ca6a1d-44c7-4798-bf4e-8e4edef0bb5b" />
+
 <img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/2fa4e9b7-64a1-40f4-ab65-7e8c3164efc3" />
 <img width="1918" height="900" alt="image" src="https://github.com/user-attachments/assets/d222dae0-0be1-49c5-bdc3-61c8b02d9360" />
 <img width="1918" height="898" alt="image" src="https://github.com/user-attachments/assets/e46f9f6a-4700-48e2-b5b7-8bfefc74dc9e" />
